@@ -44,5 +44,5 @@ var carousel = new $.slideview({
 carousel.load();
 </code></pre>
 
-See "demo":http://peteboere.github.com/fuzzbox/demo for working example and templating docs.
+See "demo":http://peteboere.github.com/jquery-slideview for working example and templating docs.
 
