@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>jquery.slideview demo</title>
+	
+	<script src="jquery.min.js"></script>
+	
+	<script src="jquery.transition.js"></script>
+	<script src="jquery.slideview.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="slideview.css" media="all" />
+
+	<!-- demo assets -->
+	<link href='http://fonts.googleapis.com/css?family=Amaranth:400,700' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="assets/demo.css" media="all" />
+
+	<script> jQuery.slideview.DEBUG = true; </script>
+</head>
+<body>
+
+
+
+<h1><span>jquery.slideview demo</span></h1>
+
+<!--
+
+
+Carousel templating
+=====================
+
+There is some flexibility to the kind of markup you can use 
+in your carousel template as long as the follows this basic
+structure:
+
+	- A wrapper element with the class 'slideview'
+	- A slide(s) container element with the class 'slideview-track'
+	- A slide element with the class 'slideview-slide'
+
+
+Turn any slide child element into a template field by setting a data attribute:
+
+<p data-slideview-field="foo"></p>
+
+
+
+Carousel json
+=====================
+
+json arrays should be supplied in the following format:
+	[
+		{
+			"<field-name>": {
+				"value": "<field-value>"
+			}
+		}
+	]
+
+Given the following example:
+	[{
+		foo: {
+			"value" : "title 1"
+		}
+	}]
+
+By default the will attempt to innerHTML the value "title 1" to the template field "foo".
+
+Given the following example we set an additional 'attr' property on the field data object 
+so the value is set on the element attribute and not via element.innerHTML:
+	[{
+		foo: {
+			"value" : "images/sunset.jpg",
+			"attr" : "src"
+		}
+	}]
+
+Will set the template field src attribute to "images/sunset.jpg"
+
+-->
+
+
+
+<div id="my-slideview" class="slideview large-carousel">
+	<ul class="slideview-track">
+		<li class="slideview-slide">
+			<img data-slideview-field="image" class="image" src="assets/images/skyscrapers.jpg" alt="" />
+			<div class="slideview-inner">
+				<h2 data-slideview-field="title" class="title">Title 1</h2>
+			</div>
+		</li>
+	</ul>
+</div>
+
+
+
+<script>
+(function ($) {
+
+	var json = [
+		{
+			"title": { "value" : "Skyscrapers" },
+			"image": {
+				"value" : "assets/images/skyscrapers.jpg",
+				"attr" : "src"
+				}
+		}, {
+			"title": { "value" : "Coney island" },
+			"image": {
+				"value" : "assets/images/wonderwheel.jpg",
+				"attr" : "src"
+				}
+		}, {
+			"title": { "value" : "Burnham-on-sea" },
+			"image": {
+				"value" : "assets/images/burnham-on-sea.jpg",
+				"attr" : "src"
+				}
+		}
+	];
+
+
+	var carousel = new $.slideview({
+		data: json,
+		container: '#my-slideview',
+		loop: true
+	});
+
+	carousel.load();
+
+	// Timed slide change only works if option.loop is set to true
+	carousel.startTimed( 7000 );
+
+})(jQuery);
+</script>
+
+
+<p class="github"><a href="http://github.com/peteboere/slideview">View project on GitHub</a></p>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+h2. Responsive, JSON loading carousel for jQuery
+
+
+h3. Why?
+
+There are a lot of jQuery carousels out there. A lot of them were designed before responsive design, tablets, smartphones, CSS3 and HTML5. A lot of the good ones have become payware.
+
+*jquery.slideview* loads slides via JSON, so it's easy to serve larger or smaller sets of images based on the type of device you are targeting. 
+
+Slideview features:
+
+* Responsive
+* JSON loading
+* Flexible templating
+* Animation uses CSS3 transitions for performance and tablet/mobile friendliness
+* Fully keyboard accessible
+
+
+h3. Basic usage
+
+<pre><code>
+var json = [
+	{
+		"title": { "value" : "Skyscrapers" },
+		"image": {
+			"value" : "assets/images/skyscrapers.jpg",
+			"attr" : "src"
+			}
+	}, {
+		"title": { "value" : "Coney island" },
+		"image": {
+			"value" : "assets/images/wonderwheel.jpg",
+			"attr" : "src"
+			}
+	}
+];
+
+var carousel = new $.slideview({
+	data: json,
+	container: '#my-carousel',
+	loop: true
+});
+
+carousel.load();
+</code></pre>
+
+See demo page for working example and templating docs.
+

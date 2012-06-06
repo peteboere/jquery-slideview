@@ -1,0 +1,79 @@
+
+/* Slideview
+---------------------------------------- */
+
+.slideview {
+	position:relative;
+
+	/* IE 7 */
+	*width:100%;
+	*overflow:hidden;
+	}
+
+.slideview:focus {
+	outline: none;
+	}
+
+.slideview-track {
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 2%; /* Minimize whitespace for inline-block */
+	}
+
+.slideview-slide {
+	position: relative;
+	font-size: 4940%; /* Restore whitespace */
+	white-space: normal;
+	vertical-align: top;
+	width: 100%;
+	}
+
+/* inline-block elements */
+.slideview-slide,
+.slideview-slide .title {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+/* Responsive images */
+.slideview-slide > img {
+	max-width:100%;
+	width:auto;
+	height:auto;
+	vertical-align:bottom;
+	}
+
+.slideview-inner {
+	position:absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	padding: 5%;
+	}
+
+
+/* Pager
+---------------------------------------- */
+
+.slideview-previous {
+	padding-right: 1em;
+	}
+.slideview-next {
+	padding-left: 1em;
+	}
+
+
+/* Basic skinning
+---------------------------------------- */
+
+.slideview-slide .title {
+	background: white;
+	background: rgba( 255, 255, 255, .9 );
+	color: #000;
+	}
+
+
+
+
